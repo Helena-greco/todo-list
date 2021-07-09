@@ -2,7 +2,7 @@ const buttonAddList = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const inputText = document.querySelector('#texto-tarefa');
 const clearButton = document.querySelector('#apaga-tudo');
-const clearSelected = document.querySelector('#remover-selecionado');
+// const clearSelected = document.querySelector('#remover-selecionado');
 
 function addList() {
   const li = document.createElement('li');
@@ -33,3 +33,9 @@ function lineThrough(event) {
 }
 
 taskList.addEventListener('dblclick', lineThrough);
+
+function clearList() {
+  taskList.innerHTML = '';
+}
+
+clearButton.addEventListener('click', clearList);
