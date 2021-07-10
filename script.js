@@ -33,6 +33,7 @@ function lineThrough(event) {
 }
 
 taskList.addEventListener('dblclick', lineThrough);
+taskList.addEventListener('mousedown', (e) => { e.preventDefault(); }, false);
 
 function clearList() {
   taskList.innerHTML = '';
