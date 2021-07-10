@@ -2,7 +2,7 @@ const buttonAddList = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const inputText = document.querySelector('#texto-tarefa');
 const clearButton = document.querySelector('#apaga-tudo');
-// const clearSelected = document.querySelector('#remover-selecionado');
+const clearSelected = document.querySelector('#remover-finalizados');
 
 function addList() {
   const li = document.createElement('li');
@@ -12,6 +12,8 @@ function addList() {
   inputText.value = '';
 }
 
+buttonAddList.addEventListener('click', addList);
+
 function changeBGColor(li) {
   const lis = document.getElementsByClassName('toDoList');
   for (let index = 0; index < lis.length; index += 1) {
@@ -19,8 +21,6 @@ function changeBGColor(li) {
   }
   li.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
-
-buttonAddList.addEventListener('click', addList);
 
 taskList.addEventListener('click', changeBGColor);
 
@@ -39,3 +39,15 @@ function clearList() {
 }
 
 clearButton.addEventListener('click', clearList);
+
+function clearCompleted() {
+  const lis = document.getElementsByClassName('toDoList');
+  const lisLength = lis.length;
+  for (let index = lisLength - 1; index >= 0; index -= 1) {
+    if (lis[index].classList.contains('completed')) {
+      taskList.removeChild(lis[index]);
+    } 
+  }
+}
+
+clearSelected.addEventListener('click', clearCompleted);
