@@ -3,6 +3,7 @@ const taskList = document.querySelector('#lista-tarefas');
 const inputText = document.querySelector('#texto-tarefa');
 const clearButton = document.querySelector('#apaga-tudo');
 const clearSelected = document.querySelector('#remover-finalizados');
+// const saveButton = document.querySelector('#salvar-tarefas');
 
 function addList() {
   const li = document.createElement('li');
@@ -19,6 +20,7 @@ function changeBGColor(li) {
   for (let index = 0; index < lis.length; index += 1) {
     lis[index].style.backgroundColor = '';
   }
+  // eslint-disable-next-line no-param-reassign
   li.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
@@ -33,6 +35,7 @@ function lineThrough(event) {
 }
 
 taskList.addEventListener('dblclick', lineThrough);
+
 taskList.addEventListener('mousedown', (e) => { e.preventDefault(); }, false);
 
 function clearList() {
@@ -47,7 +50,7 @@ function clearCompleted() {
   for (let index = lisLength - 1; index >= 0; index -= 1) {
     if (lis[index].classList.contains('completed')) {
       taskList.removeChild(lis[index]);
-    } 
+    }
   }
 }
 
