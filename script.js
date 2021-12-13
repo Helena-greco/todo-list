@@ -3,7 +3,6 @@ const taskList = document.querySelector('#lista-tarefas');
 const inputText = document.querySelector('#texto-tarefa');
 const clearButton = document.querySelector('#apaga-tudo');
 const clearSelected = document.querySelector('#remover-finalizados');
-// const saveButton = document.querySelector('#salvar-tarefas');
 
 function addList() {
   const li = document.createElement('li');
@@ -35,8 +34,6 @@ function lineThrough(event) {
 }
 
 taskList.addEventListener('dblclick', lineThrough);
-
-taskList.addEventListener('mousedown', (e) => { e.preventDefault(); }, false);
 
 function clearList() {
   taskList.innerHTML = '';
